@@ -1,29 +1,35 @@
-//interface segregation
 
-class Fly {
+//Liskov
+
+class Bird {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+class FlyableBird extends Bird {
     fly() {
-        console.log("Птица летит");
+        console.log(`${this.name} летит!`);
     }
- }
+}
 
- class UnFly{
-    UnFly(){
-        console.log("Эта птица не умеет летать");
+class Sparrow extends FlyableBird {
+    fly() {
+        console.log(`${this.name} я летаю!`);
     }
- }
+}
 
- class Duck extends Fly { }
- class Penguin extends UnFly {}
+class Penguin extends Bird {
+    fly(){
+        console.log(`${this.name} я не умею летать!`);
 
-
- 
- const birds = [new Duck(), new Penguin()];
- birds.forEach(bird=>
-    {if(bird instanceof Fly){
-        bird.fly()
     }
-    // else{
-    //     bird.UnFly()
-    // }
-    })
- 
+    
+}
+
+
+const sparrow = new Sparrow("Воробей");
+sparrow.fly(); 
+
+const penguin = new Penguin("Пингвин");
+penguin.fly();

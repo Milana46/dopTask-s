@@ -1,30 +1,32 @@
-//single responsibility
+//depemdency inversion
 
-class MessageSender {
-    sendMessage(message) {
-        throw new Error("Метод sendMessage должен быть реализован");
+ class User{
+
+    sendMessage(message){
+        console.log("Метод необходимо реализовать!!!")
     }
 }
 
-
-class EmailService extends MessageSender {
+class EmailService extends User {
     sendMessage(message) {
         console.log(`Отправка email с сообщением: ${message}`);
     }
-}
-
-
-class Notification {
-    constructor(messageSender) {
-        this.messageSender = messageSender;
+ }
+ 
+ class Notification {
+    constructor() {
+        this.emailService = new EmailService();
     }
-
+ 
     notify(message) {
-        this.messageSender.sendMessage(message);
+        this.emailService.sendMessage(message);
     }
-}
+ }
+ 
 
-const emailService = new EmailService();
-const notification = new Notification(emailService);
-notification.notify("Важное сообщение");
-
+ const emailService=new EmailService();
+ const notif=new Notification();
+ notif.notify("Важное сообщение")
+ 
+ 
+ 
