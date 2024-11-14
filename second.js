@@ -19,7 +19,7 @@ class Sparrow extends FlyableBird {
     }
 }
 
-class Penguin extends Bird {
+class Penguin extends FlyableBird {
     fly(){
         console.log(`${this.name} я не умею летать!`);
 
