@@ -47,9 +47,6 @@
 
 const polindrom=(str)=>str.toLowerCase()===str.split("").reverse().join("").toLowerCase();
 
-
-
-
 console.log(polindrom("Anna"))
 
 
