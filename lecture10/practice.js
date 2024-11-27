@@ -66,18 +66,18 @@ console.log(fib(4))
 //стрелочные функции!!!
 
 
-const users = [​
-      { name: "Alice", age: 25 },​
-      { name: "Bob", age: 20 },​
-      { name: "Charlie", age: 30 },​
-      { name: "David", age: 22 }​
-    ];
+// const users = [​
+//       { name: "Alice", age: 25 },​
+//       { name: "Bob", age: 20 },​
+//       { name: "Charlie", age: 30 },​
+//       { name: "David", age: 22 }​
+//     ];
 
-    const filterByAge=(userList, ageLimit)=>{
-        return userList.filter(it=>it.age>=ageLimit)
-    }
+//     const filterByAge=(userList, ageLimit)=>{
+//         return userList.filter(it=>it.age>=ageLimit)
+//     }
 
-const result=filterByAge(users,22)
+// const result=filterByAge(users,22)
 
 //самовызывающ функции 
 
@@ -86,3 +86,23 @@ const result=filterByAge(users,22)
     console.log(message)
 })()  //переменная message недоступна за пределами функции!!!
  
+
+(function (l,w){
+    let squere=l*w
+    console.log(squere)
+
+})(3,4)  //не забывать передавать аргументы!!!
+
+//функции декораторы
+
+function*generatorExample(){
+    yield 1;
+    yield 2;
+    yield 3;
+    yield 4;
+}
+
+const gen=generatorExample()  //gen-объект итератора!!!
+console.log(gen.next().value)
+console.log(gen.next().value)
+console.log(gen.next().value)
