@@ -65,7 +65,8 @@ function Pet(name, age) {
     this.guard = function () {
       console.log(`${this.name} охраняет территорию на уровне ${this.trainingLevel}`);
     };
-  
+    
+
     this.bark = function () {
       if (this.trainingLevel > 5) {
         console.log(`${this.name} лает громко!`);
